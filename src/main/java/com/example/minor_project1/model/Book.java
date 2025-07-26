@@ -35,11 +35,14 @@ public class Book {
 
         @JoinColumn
         @ManyToOne
-        private Student my_student;
+        private Student student;
 
     @JoinColumn
     @ManyToOne
     private Author author;
+
+
+
 
 
 }

@@ -6,10 +6,9 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/books")
@@ -26,4 +25,18 @@ public class BookController {
    //     return bookService.create(createBookRequest);
       return bookService.create(createBookRequest.convertToBook());
     }
+    @GetMapping("/all")
+    public List<Book>getAllBooks(){
+        return this.bookService.findAll();
+    }
+    @GetMapping("/find-by-name")
+    public List<Book>findBooks(@RequestParam("name") String name ){
+        return this.bookService.findByName(name);
+    }
+    @GetMapping("/find-by-genre")
+    public List<Book>findBooksByGenre(@RequestParam("genre") String genre){
+        return this.bookService.findByGenre(genre);
+    }
+
+
 }

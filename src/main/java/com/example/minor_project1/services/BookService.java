@@ -3,6 +3,7 @@ package com.example.minor_project1.services;
 import com.example.minor_project1.dtos.CreateBookRequest;
 import com.example.minor_project1.model.Author;
 import com.example.minor_project1.model.Book;
+import com.example.minor_project1.model.Genre;
 import com.example.minor_project1.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,5 +60,16 @@ public class BookService {
 
     public List<Book> findBooksIssued(Integer studentId){
         return this.bookRepository.findByStudentId(studentId);
+    }
+
+    public List<Book> findAll() {
+        return this.bookRepository.findAll();
+    }
+
+    public List<Book> findByName(String name) {
+return this.bookRepository.findByName(name);
+    }
+    public List<Book> findByGenre(String genre){
+        return this.bookRepository.findByGenre(Genre.valueOf(genre));
     }
 }

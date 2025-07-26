@@ -21,4 +21,8 @@ public class TransactionController {
         return transactionService.issueTxn(studentId, bookId);
 
     }
+    @PostMapping("/return")
+    public String returnTxn(@RequestParam("student-id")Integer studentId, @RequestParam("book-id") Integer bookId) {
+        return transactionService.returnTxn(studentId, bookId);
+    }
 }

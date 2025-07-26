@@ -1,6 +1,7 @@
 package com.example.minor_project1.repositories;
 
 import com.example.minor_project1.model.Book;
+import com.example.minor_project1.model.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -10,4 +11,8 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
     //    @Query(value = "select * from books where student_id = ?1", nativeQuery = true)
     List<Book> findByStudentId(Integer studentId);
+
+    List<Book> findByName(String name);
+
+    List<Book> findByGenre(Genre genre);
 }
